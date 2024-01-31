@@ -4,6 +4,8 @@ import { useMoralis, useWeb3Contract } from "react-moralis"
 import { useEffect, useState } from "react"
 import { useNotification } from "web3uikit"
 import { ethers } from "ethers"
+import Main from "./Main"
+import Footer from "./Footer"
 
 export default function LotteryEntrance() {
     const { Moralis, isWeb3Enabled, chainId: chainIdHex } = useMoralis()
@@ -111,11 +113,10 @@ export default function LotteryEntrance() {
 
     return (
         <div className="p-5">
-            <h1 className="py-4 px-4 font-bold text-3xl">Lottery</h1>
             {raffleAddress ? (
-                <>
+                <section className="raffle">
                     <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-auto"
+                        className="enter"
                         onClick={async () =>
                             await enterRaffle({
                                 // onComplete:
@@ -132,13 +133,23 @@ export default function LotteryEntrance() {
                             "Enter Raffle"
                         )}
                     </button>
-                    <div>Entrance Fee: {ethers.utils.formatUnits(entranceFee, "ether")} ETH</div>
-                    <div>The current number of players is: {numberOfPlayers}</div>
-                    <div>The most previous winner was: {recentWinner}</div>
-                </>
+                    <div className="raffle-content">
+                        <img className="raf-coins-l" src="/img/raf_coins_l.png"></img>   
+                        <div className="winner">
+                            <div className="stat stat-win">Previous winner</div> <span className="stat-num">{recentWinner} </span>
+                            <img className="win" src="/img/win.png"></img>
+                            <div className="raffle-stat">
+                                <div className="stat-num">Entrance Fee: <span className="stat-num">{ethers.utils.formatUnits(entranceFee, "ether")} ETH </span></div>
+                                <div className="stat-num">Current number of players: <span className="stat-num">{numberOfPlayers} </span></div>
+                            </div>
+                        </div>
+                        <img className="raf-coins-r" src="/img/raf_coins_r.png"></img> 
+                    </div>
+                </section>
             ) : (
-                <div>Please connect to a supported chain </div>
+                <Main/>
             )}
+            <Footer/>
         </div>
     )
 }

@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap');
+@font-face {
+    font-family: 'Speed';
+    src: url('../public/fonts/speed-speed-700.ttf') format('ttf');
+}
+
+.header {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-evenly !important;
+    align-items: center !important;
+}
+
+.header-logo {
+    width: 15em;
+    margin: 0 15%;
+}
+
+.explore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to left, #434343, #000000);
+    color: #FFFCEE;
+    padding: 10px 30px;
+    border-radius: 16em;
+    color: #FFFCEE;
+    font-family: 'Sen', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    width: 12em;
+}
+
+.byjoRM {
+    background: linear-gradient(to left, #434343, #000000) !important;
+    color: #FFFCEE !important;
+    padding: 10px 30px;
+    border-radius: 16em;
+    color: #FFFCEE;
+    font-family: 'Sen', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.uhQpk {
+    background: #434343 !important;
+    color: #FFFCEE !important;
+}
+
+.dGxxRz {
+    width: max-content !important;
+}
+
+.dGxxRz svg {
+    fill: #E5C71B !important;
+}
+
+.explore:hover {
+    color: #E5C71B;
+}
+
+button {
+    width: 14em !important;
+    height: 3em !important;
+    display: flex !important;
+    justify-content: center !important;
+    padding: 10px 30px !important;
+    border-radius: 16em !important;
+    align-items: center !important;
+    background: linear-gradient(to right, #434343, #000000) !important;
+    color: #FFFCEE !important;
+    border: none !important;
+}
+
+span {
+    color: #FFFCEE !important;
+    font-family: 'Sen', sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+}
+
+button:hover > span {
+    color: #E5C71B !important;
+}

@@ -1,5 +1,8 @@
 import { MoralisProvider } from "react-moralis"
 import "../styles/globals.css"
+import "../styles/header.css"
+import "../styles/main.css"
+import "../styles/footer.css"
 import { NotificationProvider } from "web3uikit"
 
 function MyApp({ Component, pageProps }) {

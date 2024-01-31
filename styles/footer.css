@@ -1,0 +1,30 @@
+.footer {
+    position: relative;
+    bottom: 0;
+    width: -webkit-fill-available;
+    padding: 0 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.footer-logo {
+    width: 15em;
+}
+
+.footer-links {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.footer-link {
+    color: #FFFCEE;
+    font-family: 'Sen', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 0 2em;
+}
