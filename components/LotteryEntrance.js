@@ -18,6 +18,7 @@ export default function LotteryEntrance() {
     // https://stackoverflow.com/questions/58252454/react-hooks-using-usestate-vs-just-variables
     const [entranceFee, setEntranceFee] = useState("0")
     const [numberOfPlayers, setNumberOfPlayers] = useState("0")
+    // const [numberOfMyTickets, setNumberOfMyTickets] = useState("0")
     const [recentWinner, setRecentWinner] = useState("0")
 
     const dispatch = useNotification()
@@ -51,6 +52,15 @@ export default function LotteryEntrance() {
         params: {},
     })
 
+    // const { runContractFunction: getMyTicketsNumber } = useWeb3Contract({
+    //     abi: abi,
+    //     contractAddress: raffleAddress,
+    //     functionName: "playerEntrances",
+    //     params: {
+    //         player: "0xdaaEd1F389a89da771e0516ce2d0da018A92913b",
+    //     },
+    // })
+
     const { runContractFunction: getRecentWinner } = useWeb3Contract({
         abi: abi,
         contractAddress: raffleAddress,
@@ -67,9 +77,11 @@ export default function LotteryEntrance() {
         // })
         const entranceFeeFromCall = (await getEntranceFee()).toString()
         const numPlayersFromCall = (await getPlayersNumber()).toString()
+        // const numMyEnterFromCall = (await getMyTicketsNumber()).toString()
         const recentWinnerFromCall = await getRecentWinner()
         setEntranceFee(entranceFeeFromCall)
         setNumberOfPlayers(numPlayersFromCall)
+        // setNumberOfMyTickets(numMyEnterFromCall)
         setRecentWinner(recentWinnerFromCall)
     }
 
@@ -140,7 +152,8 @@ export default function LotteryEntrance() {
                             <img className="win" src="/img/win.png"></img>
                             <div className="raffle-stat">
                                 <div className="stat-num">Entrance Fee: <span className="stat-num">{ethers.utils.formatUnits(entranceFee, "ether")} ETH </span></div>
-                                <div className="stat-num">Current number of players: <span className="stat-num">{numberOfPlayers} </span></div>
+                                <div className="stat-num">Total number of tickets in the pool: <span className="stat-num">{numberOfPlayers} </span></div>
+                                {/* <div className="stat-num">Number of your tickets: <span className="stat-num">{numberOfMyTickets} </span></div> */}
                             </div>
                         </div>
                         <img className="raf-coins-r" src="/img/raf_coins_r.png"></img> 
