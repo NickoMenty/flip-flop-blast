@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { useNotification } from "web3uikit"
 import { ethers } from "ethers"
 import Main from "./Main"
+import CountdownTimer from "./Countdown"
 
 export default function LotteryEntrance() {
     const { Moralis, isWeb3Enabled, chainId: chainIdHex } = useMoralis()
@@ -18,7 +19,7 @@ export default function LotteryEntrance() {
     const [entranceFee, setEntranceFee] = useState("0")
     const [numberOfPlayers, setNumberOfPlayers] = useState("0")
     const [numberOfMyTickets, setNumberOfMyTickets] = useState("0")
-    const [recentWinner, setRecentWinner] = useState("0")
+    const [recentWinner, setRecentWinner] = useState("Loading...")
 
     const dispatch = useNotification()
 
@@ -124,6 +125,7 @@ export default function LotteryEntrance() {
                             "Enter Raffle"
                         )}
                     </button>
+                    <CountdownTimer />
                     <div className="raffle-content">
                         <img className="raf-coins-l" src="/img/raf_coins_l.png"></img>   
                         <div className="winner">
@@ -137,6 +139,7 @@ export default function LotteryEntrance() {
                         </div>
                         <img className="raf-coins-r" src="/img/raf_coins_r.png"></img> 
                     </div>
+                    
                 </section>
             ) : (
                 <Main/>

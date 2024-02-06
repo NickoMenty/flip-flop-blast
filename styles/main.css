@@ -243,3 +243,11 @@ body {
   margin: -5% 0;
   width: 55em;
 }
+
+.timer {
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
