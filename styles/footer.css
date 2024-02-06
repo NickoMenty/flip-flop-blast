@@ -1,6 +1,6 @@
 .footer {
-    position: relative;
-    bottom: 0;
+    position: absolute;
+    bottom: 0%;
     width: -webkit-fill-available;
     padding: 0 1.5em;
     display: flex;

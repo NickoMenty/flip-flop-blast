@@ -165,7 +165,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 10em;
+  /* padding-top: 10em; */
+  height: 90vh;
 }
 
 .enter {
@@ -190,6 +191,7 @@ body {
     justify-content: space-around;
     margin: 2em 0;
     margin-bottom: 4em;
+    width: 100%;
     
 }
 
@@ -231,7 +233,7 @@ body {
 }
 
 .stat-num {
-  font-size: 18px !important;
+  font-size: 26px !important;
   color: #FFFCEE !important;
   font-family: 'Sen', sans-serif !important;
   font-weight: 400 !important;

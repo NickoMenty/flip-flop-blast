@@ -9,11 +9,11 @@
     flex-direction: row !important;
     justify-content: space-evenly !important;
     align-items: center !important;
+    overflow: hidden;
 }
 
 .header-logo {
     width: 15em;
-    margin: 0 15%;
 }
 
 .explore {
@@ -28,7 +28,8 @@
     font-family: 'Sen', sans-serif;
     font-size: 20px;
     font-weight: 400;
-    width: 12em;
+    width: 7em;
+    margin: 0 8px 0 0;
 }
 
 .byjoRM {
