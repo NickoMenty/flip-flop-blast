@@ -1,5 +1,6 @@
 import { MoralisProvider } from "react-moralis"
 import "../styles/globals.css"
+import "../styles/staking.css"
 import "../styles/header.css"
 import "../styles/main.css"
 import "../styles/footer.css"
@@ -14,15 +15,16 @@ function MyApp({ Component, pageProps }) {
     return (
         <div className={styles.container}>
             <Head>
-                <title>SC Raffle</title>
-                <meta name="description" content="SC Raffle" />
-                <link rel="icon" href="/favicon.ico" />
+                <title>FlipFlop - Ultimate Web3 lottery on Blast blockchain</title>
+                <meta name="description" content="FlipFlop" />
+                <link rel="icon" href="/ff.png" />
             </Head>
             <MoralisProvider initializeOnMount={false}>
                 <NotificationProvider>
                     <Header />
-                    <Footer />
+                    
                     <Component {...pageProps} />
+                    <Footer />
                 </NotificationProvider>
             </MoralisProvider>
         </div>

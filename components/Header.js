@@ -5,11 +5,9 @@ export default function Header() {
     return (
         <div className="p-5 header">
             <div className="flex flex-row items-center">
-                <a className="explore" href="/explore">Explore</a>
                 <a className="explore" href="/stake">Stake</a>
-                <a className="explore" href="/">Home</a>
             </div>
-            <img className="header-logo" src="/img/flipflop_logo.png"></img>
+            <a href="/"><img className="header-logo" src="/img/flipflop_logo.png" alt="Logo" /></a>
             <ConnectButton moralisAuth={false} />
         </div>
     )

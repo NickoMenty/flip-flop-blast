@@ -54,8 +54,8 @@ export default function CountdownTimer() {
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000)
 
     return (
-        <div className="timer" style={{color: "white"}}>
-            The raffle will close in: {String(hours).padStart(2, '0')}:{String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
+        <div className="timer" >
+            {String(hours).padStart(2, '0')}:{String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
         </div>
     )
 }

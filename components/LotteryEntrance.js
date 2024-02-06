@@ -107,6 +107,7 @@ export default function LotteryEntrance() {
         <div className="p-5">
             {raffleAddress ? (
                 <section className="raffle">
+                    
                     <button
                         className="enter"
                         onClick={async () =>
@@ -125,17 +126,18 @@ export default function LotteryEntrance() {
                             "Enter Raffle"
                         )}
                     </button>
-                    <CountdownTimer />
+                    
                     <div className="raffle-content">
                         <img className="raf-coins-l" src="/img/raf_coins_l.png"></img>   
                         <div className="winner">
                             <div className="stat stat-win">Previous winner</div> <span className="stat-num">{recentWinner} </span>
                             <img className="win" src="/img/win.png"></img>
                             <div className="raffle-stat">
-                                <div className="stat-num">Entrance Fee: <span className="stat-num">{ethers.utils.formatUnits(entranceFee, "ether")} ETH </span></div>
-                                <div className="stat-num">Total number of tickets in the pool: <span className="stat-num">{numberOfPlayers} </span></div>
-                                <div className="stat-num">Number of your tickets: <span className="stat-num">{numberOfMyTickets} </span></div>
+                                <div className="stat-num">Price: <span className="stat-num">{ethers.utils.formatUnits(entranceFee, "ether")} ETH </span></div>
+                                <div className="stat-num">All tickets: <span className="stat-num">{numberOfPlayers} </span></div>
+                                <div className="stat-num">My tickets: <span className="stat-num">{numberOfMyTickets} </span></div>
                             </div>
+                            <CountdownTimer />
                         </div>
                         <img className="raf-coins-r" src="/img/raf_coins_r.png"></img> 
                     </div>

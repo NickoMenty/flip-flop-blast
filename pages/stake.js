@@ -92,9 +92,16 @@ export default function LotteryEntrance() {
     return (
         <div className="p-5">
             {raffleAddress ? (
-                <section className="raffle">
-                    {!hasStaked && (<button
-                        className="enter"
+                <section className="staking">
+                    
+                    <div className="raffle-content">
+                        <img className="raf-coins-l" src="/img/raf_coins_l.png"></img>   
+                        <div className="stake-wrapper">
+                            <div className="stake">
+                                Stake Amount: <span className="input">{ethers.utils.formatUnits(stakeAmount, "ether")} ETH </span>
+                            </div>
+                            {!hasStaked && (<button
+                        className="enter enter-staking"
                         onClick={async () =>
                             await stake({
                                 onSuccess: handleSuccess,
@@ -110,7 +117,7 @@ export default function LotteryEntrance() {
                         )}
                     </button>)}
                     {hasStaked && (<button
-                        className="enter"
+                        className="enter enter-staking"
                         onClick={async () =>
                             await withdrawStake({
                                 onSuccess: handleSuccess,
@@ -126,12 +133,8 @@ export default function LotteryEntrance() {
                         )}
                     </button>
                     )}
-                    <div className="raffle-content">
-                        <img className="raf-coins-l" src="/img/raf_coins_l.png"></img>   
-                        <div className="winner">
-                            <div className="stat stat-win">Stake Amount: </div> <span className="stat-num">{ethers.utils.formatUnits(stakeAmount, "ether")} ETH  </span>
-                            <img className="win" src="/img/win.png"></img>
                         </div>
+                        
                         <img className="raf-coins-r" src="/img/raf_coins_r.png"></img> 
                     </div>
                 </section>
