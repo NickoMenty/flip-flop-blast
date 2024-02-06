@@ -2,18 +2,15 @@ import { useEffect, useState } from "react"
 
 export default function CountdownTimer() {
     const [hasMounted, setHasMounted] = useState(false)
-    const [timeLeft, setTimeLeft] = useState(0) // Initialize timeLeft with a default value
+    const [timeLeft, setTimeLeft] = useState(0) 
 
-    // Define getEndTime function
     function getEndTime() {
         const now = new Date();
-        const resetHour = 0; // Set the reset hour (0 for midnight)
+        const resetHour = 0; 
     
-        // Create a date object for the next reset time
         let endTime = new Date(now);
-        endTime.setUTCHours(resetHour, 0, 0, 0); // Set to the next reset time (e.g., midnight UTC)
-    
-        // If current time is past today's reset time, set endTime to the next day's reset time
+        endTime.setUTCHours(resetHour, 0, 0, 0); 
+        
         if (now.getUTCHours() >= resetHour) {
             endTime.setUTCDate(endTime.getUTCDate() + 1);
         }
@@ -21,18 +18,16 @@ export default function CountdownTimer() {
         return endTime.getTime();
     }
 
-    // Define calculateTimeLeft function
     function calculateTimeLeft() {
         const endTime = getEndTime()
         const difference = endTime - new Date().getTime()
-        return difference > 0 ? difference : 0 // Ensure timeLeft is not negative
+        return difference > 0 ? difference : 0 
     }
 
     useEffect(() => {
-        // Ensure this runs only after the component mounts
         if (!hasMounted) {
             setHasMounted(true)
-            setTimeLeft(calculateTimeLeft()) // Initialize timeLeft
+            setTimeLeft(calculateTimeLeft())
         }
 
         const timer = setInterval(() => {
@@ -42,7 +37,7 @@ export default function CountdownTimer() {
             if (newTimeLeft === 0) {
                 clearInterval(timer)
                 if (typeof window !== "undefined") {
-                    localStorage.removeItem('countdownEndTime') // Clear the stored end time
+                    localStorage.removeItem('countdownEndTime')
                 }
             }
         }, 1000)
@@ -51,11 +46,9 @@ export default function CountdownTimer() {
     }, [hasMounted])
 
     if (!hasMounted) {
-        // Return null or a placeholder while the component is mounting
-        return null // or <div>Loading...</div> for a loading state
+        return null 
     }
 
-    // Calculate hours, minutes, and seconds from timeLeft
     const hours = Math.floor(timeLeft / (1000 * 60 * 60))
     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60))
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000)
