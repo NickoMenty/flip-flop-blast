@@ -33,7 +33,9 @@ export default function LotteryEntrance() {
         contractAddress: raffleAddress,
         functionName: "enterRaffle",
         msgValue: entranceFee,
-        params: {},
+        params: {
+            // numberOfEntries: _number,
+        },
     })
 
     /* View Functions */
