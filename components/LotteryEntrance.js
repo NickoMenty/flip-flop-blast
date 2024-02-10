@@ -20,6 +20,8 @@ export default function LotteryEntrance() {
     const [numberOfPlayers, setNumberOfPlayers] = useState("0")
     const [numberOfMyTickets, setNumberOfMyTickets] = useState("0")
     const [recentWinner, setRecentWinner] = useState("Loading...")
+    const [counter, setCounter] = useState(1);
+
 
     const dispatch = useNotification()
 
@@ -32,9 +34,9 @@ export default function LotteryEntrance() {
         abi: abi,
         contractAddress: raffleAddress,
         functionName: "enterRaffle",
-        msgValue: entranceFee,
+        msgValue: entranceFee * counter,
         params: {
-            // numberOfEntries: _number,
+            numberOfEntries: counter,
         },
     })
 
@@ -105,40 +107,79 @@ export default function LotteryEntrance() {
         }
     }
 
+    const incrementCounter = () => {
+        if (counter < 99) {
+            setCounter(prevCounter => prevCounter + 1);
+        }
+    };
+    
+    const decrementCounter = () => {
+        if (counter > 1) {
+            setCounter(prevCounter => prevCounter - 1);
+        }
+    };
+    
+
     return (
         <div className="p-5">
             {raffleAddress ? (
                 <section className="raffle">
-                    
-                    <button
-                        className="enter"
-                        onClick={async () =>
-                            await enterRaffle({
-                                // onComplete:
-                                // onError:
-                                onSuccess: handleSuccess,
-                                onError: (error) => console.log(error),
-                            })
-                        }
-                        disabled={isLoading || isFetching}
-                    >
-                        {isLoading || isFetching ? (
-                            <div className="animate-spin spinner-border h-8 w-8 border-b-2 rounded-full"></div>
-                        ) : (
-                            "Enter Raffle"
-                        )}
-                    </button>
-                    
+                    <div className="raffle-stat">
+                                <div className="stat-card">
+                                <div className="stat-num">
+                                    <img className="stat-num-img" src="/img/prize.png"></img>
+                                    <span className="stat-num">{ethers.utils.formatUnits(entranceFee, "ether")}</span>
+                                    ETH<br /> Price 
+                                </div>
+                                </div>
+                                <div className="stat-card">
+                                <div className="stat-num">
+                                    <img className="stat-num-img" src="/img/ticket.png"></img>
+                                    <span className="stat-num">{numberOfPlayers} </span>
+                                    All<br /> tickets 
+                                </div>
+                                </div>
+                                <div className="stat-card">
+                                <div className="stat-num">
+                                    <img className="stat-num-img" src="/img/hand.png"></img>
+                                    <span className="stat-num">{numberOfMyTickets} </span>
+                                    My<br /> tickets 
+                                </div>
+                                </div>
+                            </div>
+                            <div className="tickets">
+                                <button className="counter" onClick={decrementCounter}>-</button>
+                                
+                                <button
+                                    className="enter"
+                                    onClick={async () =>
+                                        await enterRaffle({
+                                            // onComplete:
+                                            // onError:
+                                            onSuccess: handleSuccess,
+                                            onError: (error) => console.log(error),
+                                            params: {
+                                                numberOfEntries: counter
+                                            }
+                                        })
+                                    }
+                                    disabled={isLoading || isFetching}
+                                >
+                                    {isLoading || isFetching ? (
+                                        <div className="animate-spin spinner-border h-8 w-8 border-b-2 rounded-full"></div>
+                                    ) : (
+                                        `Enter Raffle x${counter}`
+                                    )}
+                                </button>
+
+                                <button className="counter" onClick={incrementCounter}>+</button>
+                            </div>
+
                     <div className="raffle-content">
                         <img className="raf-coins-l" src="/img/raf_coins_l.png"></img>   
                         <div className="winner">
-                            <div className="stat stat-win">Previous winner</div> <span className="stat-num">{recentWinner} </span>
+                            <div className="stat stat-win">Previous winner</div> <span className="stat-win-num">{recentWinner} </span>
                             <img className="win" src="/img/win.png"></img>
-                            <div className="raffle-stat">
-                                <div className="stat-num">Price: <span className="stat-num">{ethers.utils.formatUnits(entranceFee, "ether")} ETH </span></div>
-                                <div className="stat-num">All tickets: <span className="stat-num">{numberOfPlayers} </span></div>
-                                <div className="stat-num">My tickets: <span className="stat-num">{numberOfMyTickets} </span></div>
-                            </div>
                             <CountdownTimer />
                         </div>
                         <img className="raf-coins-r" src="/img/raf_coins_r.png"></img> 

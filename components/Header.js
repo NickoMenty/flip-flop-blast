@@ -1,14 +1,30 @@
-import { ConnectButton } from "web3uikit"
-import Link from "next/link"
+import { useRouter } from 'next/router';
+import { ConnectButton } from 'web3uikit';
+import Link from 'next/link';
 
 export default function Header() {
-    return (
-        <div className="p-5 header">
-            <div className="flex flex-row items-center">
-                <a className="explore" href="/stake">Stake</a>
-            </div>
-            <a href="/"><img className="header-logo" src="/img/flipflop_logo.png" alt="Logo" /></a>
-            <ConnectButton moralisAuth={false} />
-        </div>
-    )
+  const router = useRouter();
+
+  // Перевірка поточного шляху та встановлення посилання і тексту
+  let linkHref, linkText;
+  if (router.pathname === '/stake') {
+    linkHref = '/';
+    linkText = 'Raffle';
+  } else {
+    linkHref = '/stake';
+    linkText = 'Stake';
+  }
+
+  return (
+    <div className="p-5 header">
+      <div className="flex flex-row items-center">
+        <Link href={linkHref} className="explore">{linkText}
+        </Link>
+      </div>
+      <a href="/">
+        <img className="header-logo" src="/img/flipflop_logo.png" alt="Logo" />
+      </a>
+      <ConnectButton moralisAuth={false} />
+    </div>
+  );
 }

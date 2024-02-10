@@ -175,20 +175,42 @@ body {
   height: 90vh;
 }
 
-.enter {
+.tickets {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4em;
+  margin-bottom: -2em !important;
+}
+
+.counter {
   background: #E0B20D !important;
   padding: 0.5em 1em;
   font-family: "Speed", sans-serif;
   font-size: 28px;
   color: #0C0A08 !important;
-  margin: 2em 0;
-  transition: background-color 0.3s ease, color 0.3s ease;/* Додайте transition для плавних змін */
+  width: max-content !important;
+}
+
+.counter:hover {
+  background: #0C0A08 !important;
+  color: #E0B20D !important;
+}
+
+.enter {
+  background: #E0B20D !important;
+  padding: 0.5em 1.3em;
+  font-family: "Speed", sans-serif;
+  font-size: 28px;
+  color: #0C0A08 !important;
+  margin: 0 0.4em;
+  transition: background-color 0.3s ease, color 0.3s ease;
   animation: myAnim 1s cubic-bezier(0.11, 0, 0.5, 0) 0s 1 normal forwards;
 }
 
 .enter:hover {
-  background: #0C0A08 !important; /* Сірий колір при наведенні */
-  color: #E0B20D !important; /* Жовтий текст при наведенні */
+  background: #0C0A08 !important;
+  color: #E0B20D !important;
 }
 
 .raffle-content {
@@ -201,9 +223,6 @@ body {
     
 }
 
-.raf-coins {
-}
-
 .raf-coins-l {
     margin-right: 7rem;
 }
@@ -213,7 +232,7 @@ body {
 }
 
 .raffle-stat {
-  width: 40em;
+  width: 43em;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -225,6 +244,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: -3em;
 }
 
 .stat {
@@ -235,19 +255,49 @@ body {
 }
 
 .stat-win {
-  font-size: 32px;
+  font-size: 28px;
+  margin-bottom: -0.4em;
+}
+
+.stat-win-num {
+  font-size: 14px !important;
+}
+
+.stat-card {
+  display: flex;
+  border-radius: 1em;
+  padding: 1em;
+  width: 10em;
+  background: linear-gradient(to bottom left, #434343, #000000);
 }
 
 .stat-num {
-  font-size: 20px !important;
+  text-align: center;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  font-family: "Speed", sans-serif !important;
+  font-size: 18px !important;
+  color: #E0B20D!important;
+  font-weight: 400 !important;
+}
+
+.stat-num > span {
   color: #FFFCEE !important;
   font-family: 'Sen', sans-serif !important;
+  font-size: 32px !important;
+  margin: 0.1em 0;
   font-weight: 400 !important;
+}
+
+.stat-num-img {
+  width: 50%;
 }
 
 .win {
   margin: -5% 0;
-  width: 55em;
+  width: 35em;
 }
 
 .timer {
