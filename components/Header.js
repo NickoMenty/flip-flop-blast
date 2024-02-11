@@ -21,9 +21,9 @@ export default function Header() {
         <Link href={linkHref} className="explore">{linkText}
         </Link>
       </div>
-      <a href="/">
+      <Link href="/">
         <img className="header-logo" src="/img/flipflop_logo.png" alt="Logo" />
-      </a>
+      </Link>
       <ConnectButton moralisAuth={false} />
     </div>
   );

@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
             <Head>
                 <title>FlipFlop - Ultimate Web3 lottery on Blast blockchain</title>
                 <meta name="description" content="FlipFlop" />
-                <link rel="icon" href="/ff.png" />
+                <link rel="icon" href="/img/ff.png" />
             </Head>
             <MoralisProvider initializeOnMount={false}>
                 <NotificationProvider>
