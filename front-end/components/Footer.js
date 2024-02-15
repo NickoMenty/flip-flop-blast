@@ -8,7 +8,7 @@ export default function Footer() {
             <div className="footer-links">
                 <a className="footer-link" href="https://flip-flop.gitbook.io/ffdocs/" target="_blank" rel="noreferrer">Whitepaper</a>
                 <a className="footer-link" href="https://flip-flop.gitbook.io/ffdocs/roadmap-and-plans" target="_blank" rel="noreferrer">Roadmap</a>
-                <a className="footer-link" href="https://twitter.com/ffonblast" target="_blank" rel="noreferrer"><FaXTwitter /></a>
+                <a className="footer-link" href="https://twitter.com/BlastFlipflop" target="_blank" rel="noreferrer"><FaXTwitter /></a>
                 <a className="footer-link" href="https://discord.gg/DTqzYtfDwQ" target="_blank" rel="noreferrer"><FaDiscord /></a>
             </div>
         </div>
